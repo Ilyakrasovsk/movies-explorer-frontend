@@ -23,7 +23,7 @@ export const Profile = (props) => {
                 </div>
                 <div className="profile__links">
                     <a className="profile__link-redact">Редактировать</a>
-                    <a className="profile__link-exit">Выйти из аккаунта</a>
+                    <a href='/' className="profile__link-exit">Выйти из аккаунта</a>
                 </div>
             </div>
 

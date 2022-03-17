@@ -1,6 +1,7 @@
 import {Switch, Route , } from "react-router-dom";
 import Main from "./Main";
 import Movies from './Movies/Movies';
+import Saved from './Saved/Saved';
 import '../index.css';
 import Login from "./Login";
 import Register from "./Register/Register";
@@ -20,8 +21,8 @@ function App() {
                   <Route path="/sign-in">
                     <Login />
                   </Route>
-                  <Route path='/saved'>
-                     <Movies />
+                  <Route path="/saved">
+                     <Saved />
                   </Route>
                   <Route path='/sign-up'>
                       <Register />

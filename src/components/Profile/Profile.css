@@ -47,6 +47,7 @@
 }
 .profile__link-exit{
     text-align: center;
+    text-decoration: none;
 }
 .profile__name{
     margin: 0 0 16px;
