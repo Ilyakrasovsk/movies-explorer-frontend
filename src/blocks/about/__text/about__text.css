@@ -1,0 +1,25 @@
+.about__text{
+    font-family: Inter, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    color: #fff;
+    margin: 0;
+}
+
+@media (max-width: 730px) {
+    .about__text{
+        max-width: 550px;
+        width: 100%;
+        font-size: 11px;
+        line-height: 16px;
+
+    }
+}
+@media (max-width: 450px) {
+    .about__text{
+        width:284px;
+
+    }
+}

@@ -1,0 +1,18 @@
+.technologies__line{
+    display: flex;
+    justify-content: center;
+    margin: 100px 0;
+}
+@media (max-width: 730px) {
+    .technologies__line{
+        margin-top: 50px;
+        margin-bottom: 70px;
+        max-width: 450px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 84px 84px;
+        grid-template-rows: 57px 57px;
+        column-gap: 10px;
+        row-gap: 10px;
+    }
+}

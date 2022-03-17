@@ -1,0 +1,14 @@
+.about__small-block{
+    width: 228px;
+    height: 36px;
+}
+@media (max-width: 1140px) {
+    .about__small-block{
+      margin-left: 70px;
+    }
+  }
+@media (max-width: 450px) {
+    .about__small-block{
+      margin-left: 18px;
+    }
+  }

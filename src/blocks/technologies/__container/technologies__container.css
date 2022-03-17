@@ -1,0 +1,9 @@
+.technologies__container{
+    margin-top: 90px;
+    max-width: 1140px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+}

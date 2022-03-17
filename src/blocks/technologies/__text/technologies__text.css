@@ -1,0 +1,20 @@
+.technologies__text{
+    margin: 26px 0 0;
+    align-self: center;
+    max-width: 460px;
+    width: 100%;
+    font-family: Inter, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: -0.04em;
+}
+@media (max-width: 320px) {
+    .technologies__text{
+        max-width: 292px;
+        font-size: 11px;
+        line-height: 16px;
+    }
+}

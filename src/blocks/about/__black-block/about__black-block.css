@@ -1,0 +1,10 @@
+.about__black-block{
+    width: 100%;
+    max-width: 912px;
+    height: 36px;
+    display: flex;
+    background: #303030;
+    text-align: center;
+    justify-content: center;
+    color: #fff;
+}

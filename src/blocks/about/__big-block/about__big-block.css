@@ -1,0 +1,14 @@
+.about__big-block{
+    max-width: 912px;
+    width: 100%;
+}
+@media (max-width: 1140px) {
+    .about__big-block{
+      margin-right: 70px;
+    }
+  }
+@media (max-width: 450px) {
+    .about__big-block{
+      margin-right: 18px;
+    }
+  }

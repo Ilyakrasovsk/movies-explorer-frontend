@@ -1,0 +1,21 @@
+.student__site-name{
+    margin: 0;
+    font-family: Inter, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 50px;
+    max-width: 880px;
+    width: 100%;
+    letter-spacing: -0.04em;
+    color: #fff;
+}
+
+@media (max-width: 730px) {
+    .student__site-name{
+        font-size: 18px;
+        line-height: 28px;
+
+
+    }
+}

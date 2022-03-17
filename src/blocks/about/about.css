@@ -1,0 +1,10 @@
+.about{
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    width: 100%;
+    margin: auto;
+    min-height: 608px;
+    background: #202020;
+    align-items: center;
+}

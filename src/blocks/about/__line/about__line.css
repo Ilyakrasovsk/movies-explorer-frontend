@@ -1,0 +1,13 @@
+.about__line{
+    display: flex;
+    margin: 110px 0;
+    max-width: 1140px;
+    width: 100%;
+    justify-content: center;
+}
+@media (max-width: 450px) {
+    .about__line{
+        margin: 70px 18px 60px;
+        
+    }
+}
