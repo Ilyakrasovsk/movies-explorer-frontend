@@ -6,7 +6,7 @@ function MoviesHeader() {
     return(
 
         <header className="movies__header">
-            <img src={vector} className="header__logo" alt="Место"/>
+          <a href="/" className="header__logo-link"><img src={vector} className="header__logo" alt="logo"/></a>
             <div className="movies__header-links">
                 <a href='/movies' className="movies__header-link">Фильмы</a>
                 <a href='/saved' className="movies__header-link">Сохраненные фильмы</a>

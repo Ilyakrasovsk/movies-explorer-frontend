@@ -7,3 +7,9 @@
     background: #272727;
     align-items: center;
 }
+@media (max-width: 320px) {
+    .technologies{
+        background: #202020;
+
+    }
+}

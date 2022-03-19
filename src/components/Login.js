@@ -3,6 +3,7 @@ function Login() {
   return (
     <>
         <section className='login'>
+        <div>
           <img className='login__icon' alt='Логотип' src={logo} />
           <h3 className='login__title'>Рады видеть!</h3>
           <form className='login__form'>
@@ -13,6 +14,7 @@ function Login() {
             <button type='submit' className='login__button'>Войти</button>
           </form>
           <p className='login__enter-text'>Ещё не зарегестрированы? <a className='login__enter-link' href='/sign-up'>Регистрация</a></p>
+          </div>
         </section>
     </>
   )

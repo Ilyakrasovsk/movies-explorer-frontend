@@ -27,15 +27,21 @@ function Student() {
                 <h4 className="student__site-portfolio">Портфолио</h4>
                 <div className="student__site-content">
                     <p className="student__site-name">Статичный сайт</p>
-                    <img src={vector} className="student__site-link"></img>
+                    <a href="https://github.com/Ilyakrasovsk/how-to-learn" target="_blank">
+                      <img src={vector} className="student__site-link"></img>
+                    </a>
                 </div>
                 <div className="student__site-content">
                     <p className="student__site-name">Адаптивный сайт</p>
-                    <img src={vector} className="student__site-link"></img>
+                    <a href="https://github.com/Ilyakrasovsk/russian-travell-progect" target="_blank">
+                      <img src={vector} className="student__site-link"></img>
+                    </a>
                 </div>
                 <div className="student__site-content">
                     <p className="student__site-name">Одностраничное приложение</p>
-                    <img src={vector} className="student__site-link"></img>
+                    <a href="https://github.com/Ilyakrasovsk/mestoik" target="_blank">
+                      <img src={vector} className="student__site-link"></img>
+                    </a>
                 </div>
             </div>
         </section>

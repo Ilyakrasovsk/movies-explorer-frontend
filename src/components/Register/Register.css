@@ -79,3 +79,14 @@
     width: 260px;
   }
 }
+@media (max-width: 320px) {
+  .register__form {
+    width: 260px;
+  }
+  .register__title {
+    text-align: center;
+  }
+  .register__icon {
+    margin-left: 111px;
+  }
+}

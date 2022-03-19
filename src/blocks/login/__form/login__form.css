@@ -3,3 +3,9 @@
     flex-direction: column;
     margin-top: 40px;
 }
+@media (max-width: 320px) {
+    .login__form{
+        width: 260px;
+        margin: 40px auto 0;
+    }
+}

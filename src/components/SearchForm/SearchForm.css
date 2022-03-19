@@ -14,7 +14,7 @@
 .search__form{
     max-width: 1140px;
     width: 100%;
-    height: 47px;
+    height: 72px;
     margin: auto;
     border-right: 1px solid #424242;
     display: flex;
@@ -35,7 +35,7 @@
     font-weight: 500;
     font-size: 18px;
     line-height: 20px;
-    max-width: 600px;
+    max-width: 814px;
     width: 100%;
     color: #fff;
     margin-left: 30px;
@@ -50,13 +50,15 @@
     .search__form{
         max-width: 708px;
     }
-    
+
 }
 @media (max-width: 710px) {
-    .search{
-      
-    }
     .search__container{
       display: block;
+      background-color: #202020;
+    }
+    .search__form {
+      background-color: #222222;
+      border: none;
     }
 }
