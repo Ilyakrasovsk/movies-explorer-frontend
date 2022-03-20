@@ -14,8 +14,7 @@ function Student() {
                         Илья
                     </h3>
                     <p className="student__stag">Студент, 27 лет</p>
-                    <p className="student__text">Я родился и живу в ХМАО, закончил колледж по специальности "Строительство автомобильных дорог и аэродромов". У меня есть жена
-                        и дочь. Я люблю слушать музыку, а ещё видеоиграми. Недавно начал кодить. С 2021 года начал работать в небольшой IT компании «Югорские интернет решения».</p>
+                    <p className="student__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     <p className="student__link-container">
                         <a href="#" className="student__link">Facebook</a>
                         <a href="#" className="student__link">GitHub</a>
@@ -27,13 +26,13 @@ function Student() {
                 <h4 className="student__site-portfolio">Портфолио</h4>
                 <div className="student__site-content">
                     <p className="student__site-name">Статичный сайт</p>
-                    <a href="https://github.com/Ilyakrasovsk/how-to-learn" target="_blank">
+                    <a href="https://github.com/Ilyakrasovsk/how-to-learn/" target="_blank">
                       <img src={vector} className="student__site-link"></img>
                     </a>
                 </div>
                 <div className="student__site-content">
                     <p className="student__site-name">Адаптивный сайт</p>
-                    <a href="https://github.com/Ilyakrasovsk/russian-travell-progect" target="_blank">
+                    <a href="https://github.com/Ilyakrasovsk/russian-travell-progect/" target="_blank">
                       <img src={vector} className="student__site-link"></img>
                     </a>
                 </div>
