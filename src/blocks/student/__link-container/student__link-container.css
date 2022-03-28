@@ -1,0 +1,11 @@
+.student__link-container{
+    margin: 99px 0 0;
+    width: 126px;
+    display: flex;
+    justify-content: space-between;
+}
+@media (max-width: 450px) {
+    .student__link-container{
+        margin: 40px 0 0;
+    }
+}

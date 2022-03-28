@@ -1,0 +1,29 @@
+.student__site-portfolio{
+  margin: 0;
+    font-family: Inter, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 20px;
+    color: #8b8b8b;
+    mix-blend-mode: normal;
+    width: 250px;
+    margin-bottom: 50px;
+}
+@media (max-width: 1150px) {
+    .student__site-portfolio{
+        margin: 0  0 50px 50px;
+    }
+}
+@media (max-width: 730px) {
+    .student__site-portfolio{
+        margin-bottom: 40px;
+        margin-left: 14px;
+
+    }
+}
+@media (max-width: 730px) {
+    .student__site-portfolio{
+      font-size: 14px;
+    }
+}

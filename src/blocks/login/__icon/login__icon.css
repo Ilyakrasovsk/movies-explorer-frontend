@@ -1,0 +1,8 @@
+.login__icon {
+  margin: 0;
+}
+@media (max-width: 320px) {
+    .login__icon {
+        margin-left: 121px;
+    }
+}

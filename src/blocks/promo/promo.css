@@ -1,0 +1,26 @@
+.promo{
+    background-color: #073042;
+    max-width: 100%;
+    margin: auto;
+    width: 100%;
+    height: 590px;
+    position: relative;
+    background-image: url("../../images/pic__COLOR_landing-logo.svg");
+    background-position:center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+ @media (max-width: 768px) {
+   .promo{
+     height: 850px;
+   }
+ }
+ @media (max-width: 320px) {
+   .promo{
+     height: 636px;
+     background-size: 248px;
+   }
+ }

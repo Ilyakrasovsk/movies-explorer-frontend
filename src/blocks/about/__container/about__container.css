@@ -1,0 +1,18 @@
+.about__container{
+    display: flex;
+    margin: 70px 0 0;
+    justify-content: space-between;
+    max-width:1140px;
+    width: 100%;
+}
+@media (max-width: 730px) {
+    .about__container{
+        margin: 70px auto 0;
+        flex-direction: column;
+    }
+}
+@media (max-width: 450px) {
+    .about__container{
+        flex-direction: column;
+    }
+}

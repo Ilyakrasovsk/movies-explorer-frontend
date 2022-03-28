@@ -1,0 +1,35 @@
+.student__site-content{
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    border-bottom: 1px solid #424242;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.student__site-content:last-of-type{
+    border-bottom: none;
+}
+@media (max-width: 1150px) {
+    .student__site-content{
+        margin:  0 50px 0 50px;
+    }
+}
+@media (max-width: 730px) {
+    .student__site-content{
+        margin-left: 14px;
+        margin-right: 14px;
+        height: 47px;
+        margin-top: 19px;
+    }
+    .student__site-content:first-of-type{
+        margin-top: 0;
+    }
+}
+@media (max-width: 450px) {
+    .student__site-content{
+      
+    }
+    .student__site-content:first-of-type{
+        margin-top: 0;
+    }
+}

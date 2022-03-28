@@ -1,0 +1,12 @@
+.student__info-container{
+    display: flex;
+    max-width: 1280px;
+    width: 100%;
+    justify-content: space-between;
+}
+@media (max-width: 730px) {
+    .student__info-container{
+        flex-direction: column-reverse;
+
+    }
+}

@@ -1,0 +1,8 @@
+.about__green-block{
+    display: flex;
+    background: #2BE080;
+    max-width: 228px;
+    height: 36px;
+    text-align: center;
+    justify-content: center;
+}

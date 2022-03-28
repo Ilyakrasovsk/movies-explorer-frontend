@@ -1,0 +1,17 @@
+.login__button {
+    margin-top: 170px;
+    background-color: #3456F3;
+    border-radius: 3px;
+    font-family: Inter, serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 14px;
+    color: #fff;
+    height: 45px;
+    border: none;
+}
+@media (max-width: 450px) {
+  .login__button{
+    margin-top: 260px;
+  }
+}

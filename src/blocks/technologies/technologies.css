@@ -1,0 +1,15 @@
+.technologies{
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    width: 100%;
+    margin: auto;
+    background: #272727;
+    align-items: center;
+}
+@media (max-width: 320px) {
+    .technologies{
+        background: #202020;
+
+    }
+}

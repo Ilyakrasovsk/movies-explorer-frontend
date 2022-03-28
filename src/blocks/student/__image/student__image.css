@@ -1,0 +1,21 @@
+.student__image{
+    width: 270px;
+    height: 327px;
+    margin-top: 66px;
+    border-radius: 10px;
+    margin-right: 70px;
+}
+@media (max-width: 768px ) {
+    .student__image{
+        width: 255px;
+        height: 307px;
+        margin-left: 49px;
+    }
+}
+@media (max-width: 730px) {
+    .student__image{
+        flex-direction: column-reverse;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

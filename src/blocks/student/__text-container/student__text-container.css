@@ -1,0 +1,16 @@
+.student__text-container{
+    display: flex;
+    flex-direction: column;
+    margin-left: 70px;
+    color: #fff;
+}
+@media (max-width: 730px) {
+    .student__text-container{
+        margin-left: 14px;
+    }
+}
+@media (max-width: 450px) {
+    .student__text-container{
+        max-width: 292px;
+    }
+}

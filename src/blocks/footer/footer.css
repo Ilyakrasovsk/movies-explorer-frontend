@@ -1,0 +1,15 @@
+.footer{
+    max-width: 100%;
+    background: #202020;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-top: 79px;
+    padding-bottom: 20px;
+}
+@media (max-width: 450px) {
+    .footer{
+        padding-bottom: 10px;
+    }
+}

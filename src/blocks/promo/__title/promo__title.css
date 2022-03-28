@@ -1,0 +1,30 @@
+.promo__title{
+    font-family: Inter, serif ;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 50px;
+    line-height: 58px;
+    letter-spacing: -0.04em;
+    color: #FFFFFF;
+    max-width: 730px;
+    margin: 0;
+    padding-bottom: 170px;
+    text-align: center;
+}
+@media (max-width: 768px) {
+    .promo__title{
+      padding-bottom: 300px;
+    }
+}
+@media (max-width: 450px) {
+    .promo__title{
+      font-size: 31px;
+      line-height: 39px;
+    }
+}
+@media (max-width: 320px) {
+    .promo__title{
+      padding-bottom: 190px;
+      max-width: 300px;
+    }
+}
