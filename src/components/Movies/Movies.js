@@ -3,19 +3,20 @@ import SearchForm from "../SearchForm/SearchForm";
 import MoviesCards from "../MoviesCards/MoviesCards";
 import Footer from "../Footer";
 import Menu from "../Menu/Menu";
+import React from "react";
+import Preloader from "../Preloader/Preloader";
 
-function Movies() {
-
+function Movies(props) {
+  const moviesLocalStorage = JSON.parse(localStorage.getItem('movies'));
     return(
-        <>
-        <MoviesHeader />
         <main>
+            <MoviesHeader />
             <Menu />
-            <SearchForm />
-            <MoviesCards/>
-        </main>
+            <SearchForm onSearch={props.onSearch} isActive={props.isActive} handleChange={props.handleChange} />
+            <Preloader isOn={props.isPreloaderOn}/>
+            <MoviesCards counterMoviesSearch={props.counterMoviesSearch} movies={props.moviesLocalStorage} setLike={props.saveMovie} setDislike={props.deleteMovie} savedMovies={props.savedMovies}/>
             <Footer />
-        </>
+        </main>
     )
 }
 export default Movies;

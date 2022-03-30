@@ -6,12 +6,12 @@ import Footer from "./Footer";
 import Header from "./Header";
 
 
-function Main() {
+function Main(props) {
 
     return(
         <main>
             <div className="page">
-            <Header />
+            <Header loggedIn={props.loggedIn}/>
             <Promo />
             <About />
             <Technologies />

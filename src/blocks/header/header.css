@@ -6,3 +6,20 @@
     width: 100%;
     max-width: 100%;
 }
+.header__text{
+    text-decoration: none;
+    margin: 0;
+}
+.movies__headermain-link {
+  color: white;
+  font-family: Inter, serif;
+  font-style: normal;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: right;
+  margin-top: 28px;
+}
+.movies__headermain-link:first-of-type {
+  margin-right: 16px;
+}

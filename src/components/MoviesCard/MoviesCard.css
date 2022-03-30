@@ -10,9 +10,12 @@
     font-weight: normal;
     font-size: 10px;
     line-height: 9px;
+    background-image: url("../../images/save3d.png");
+    background-repeat: no-repeat;
+    background-position: center;
     color: #fff;
     border: none;
-    background-color: #2f2f2f;
+    /* background-color: #2f2f2f; */
 }
 .movies-card__button-ok{
     position: absolute;

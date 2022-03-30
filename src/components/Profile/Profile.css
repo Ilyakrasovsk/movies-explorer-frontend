@@ -114,3 +114,34 @@
     max-width: 260px;
   }
 }
+.profile__overlay{
+    background: rgba(0, 0, 0, .3);
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+.profile__form{
+    background: white;
+    display: flex;
+    flex-direction: column;
+}
+.profile__edit-button_novalidate {
+    cursor: unset;
+}
+.profile__popup{
+    display: flex;
+    background: white;
+}
+.profile__popup-text{
+    padding: 15px;
+}
+.profile__overlay_active{
+    display: flex;
+}
