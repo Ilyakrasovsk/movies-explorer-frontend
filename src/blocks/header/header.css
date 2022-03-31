@@ -7,8 +7,8 @@
     max-width: 100%;
 }
 .header__text{
-    text-decoration: none;
-    margin: 0;
+    margin: 0 auto;
+    color: #000000;
 }
 .movies__headermain-link {
   color: white;
