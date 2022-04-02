@@ -1,4 +1,4 @@
-import {Switch, Route, useHistory, useLocation } from "react-router-dom";
+import { Switch, Route, useHistory, useLocation } from "react-router-dom";
 import React from "react";
 import Main from "./Main";
 import Movies from './Movies/Movies';
@@ -200,6 +200,7 @@ function App() {
       }
     preloaderOff();
     console.log(film);
+    setSearchedMovies(film);
     changeClickCounter(1);
     localStorage.setItem('saved', JSON.stringify(film))
   }

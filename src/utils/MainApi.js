@@ -83,7 +83,8 @@ const newMainApi = new MainApi({
   baseUrl: 'http://api.diplom.ilkras.nomoredomains.work',
   headers: {
     authorization: `Bearer ${localStorage.getItem('jwt')}`,
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
   }
 })
 
