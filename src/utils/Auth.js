@@ -5,6 +5,7 @@ export const registration = ({name, email, password}) => {
     console.log({name, email, password})
     return fetch(`${BASE_URL}/signup`, {
         method: 'POST',
+        credentials: 'include',
         headers: {
           'Accept': 'application/json',
           "Content-Type": "application/json"
@@ -17,6 +18,7 @@ export const registration = ({name, email, password}) => {
 export const authorization = ({email, password}) => {
     return fetch(`${BASE_URL}/signin`, {
         method: 'POST',
+        credentials: 'include',
         headers: {
           'Accept': 'application/json',
           "Content-Type": "application/json"
@@ -29,6 +31,7 @@ export const authorization = ({email, password}) => {
 export const getContent = (token) => {
     return fetch(BASE_URL + '/users/me', {
         method: 'GET',
+        credentials: 'include',
         headers: {
             'Accept': 'application/json',
             "Content-Type": "application/json",
