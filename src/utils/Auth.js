@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://api.diplom.ilkras.nomoredomains.work';
+export const BASE_URL = 'https://api.diplom.ilkras.nomoredomains.work';
 
 
 export const registration = ({name, email, password}) => {
