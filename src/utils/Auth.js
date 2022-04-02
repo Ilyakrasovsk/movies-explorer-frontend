@@ -9,7 +9,7 @@ export const registration = ({name, email, password}) => {
         headers: {
           'Accept': 'application/json',
           "Content-Type": "application/json"
-        } ,
+        },
         body: JSON.stringify({name, email, password})
     })
         .then(checkResponse)
@@ -29,7 +29,7 @@ export const authorization = ({email, password}) => {
 }
 
 export const getContent = (token) => {
-    return fetch(BASE_URL + '/users/me', {
+    return fetch(`${BASE_URL}/users/me`, {
         method: 'GET',
         credentials: 'include',
         headers: {

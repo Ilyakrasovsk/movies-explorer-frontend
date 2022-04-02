@@ -16,7 +16,7 @@ class MainApi {
 
 
   getProfileInfo() {
-    return fetch(this.baseUrl + '/users/me', {
+    return fetch(`${this.baseUrl}/users/me/`, {
       headers: this.headers
     })
         .then(this._checkResponse)
@@ -24,7 +24,7 @@ class MainApi {
 
 
   editProfileInfo(name, email) {
-    return fetch(this.baseUrl + '/users/me', {
+    return fetch(`${this.baseUrl}/users/me/`, {
       method: 'PATCH',
       headers: this.headers,
       body: JSON.stringify({
@@ -40,7 +40,7 @@ class MainApi {
   }
 
   addNewMovie(movie) {
-    return fetch(this.baseUrl + '/movies', {
+    return fetch(`${this.baseUrl}/movies/`, {
       method: 'POST',
       credentials: 'include',
       headers: this.headers,
@@ -62,7 +62,7 @@ class MainApi {
   }
 
   getMovies() {
-    return fetch(this.baseUrl + '/movies/', {
+    return fetch(`${this.baseUrl}/movies/`, {
       method: 'GET',
       credentials: 'include',
       headers: this.headers,
@@ -72,7 +72,7 @@ class MainApi {
   }
 
   deleteMovie(movieId) {
-    return fetch(this.baseUrl + `/movies/${movieId}`, {
+    return fetch(`${this.baseUrl}/movies/${movieId}`, {
       method: 'DELETE',
       credentials: 'include',
       headers: this.headers,
