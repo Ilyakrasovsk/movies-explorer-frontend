@@ -17,6 +17,7 @@ class MainApi {
 
   getProfileInfo() {
     return fetch(`${this.baseUrl}/users/me/`, {
+      method: 'GET',
       headers: this.headers,
       credentials: 'include'
     })
