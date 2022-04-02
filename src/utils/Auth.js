@@ -1,13 +1,13 @@
 export const BASE_URL = 'http://api.diplom.ilkras.nomoredomains.work';
 
 
-export const registration = ({name, email, password}) => {
+export const registration = (name, email, password) => {
     console.log({name, email, password})
     return fetch(`${BASE_URL}/signup`, {
         method: 'POST',
         headers: {'Accept': 'application/json',
             "Content-Type": "application/json"} ,
-        body: JSON.stringify({name, email, password})
+        body: JSON.stringify(name, email, password)
     })
         .then(checkResponse)
 }
