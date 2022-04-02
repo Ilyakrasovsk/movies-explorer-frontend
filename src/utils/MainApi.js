@@ -84,7 +84,6 @@ const newMainApi = new MainApi({
   headers: {
     authorization: `Bearer ${localStorage.getItem('jwt')}`,
     'Content-Type': 'application/json',
-    'Accept': 'application/json'
   }
 })
 
