@@ -17,7 +17,8 @@ class MainApi {
 
   getProfileInfo() {
     return fetch(`${this.baseUrl}/users/me/`, {
-      headers: this.headers
+      headers: this.headers,
+      credentials: 'include'
     })
         .then(this._checkResponse)
   }
@@ -27,6 +28,7 @@ class MainApi {
     return fetch(`${this.baseUrl}/users/me/`, {
       method: 'PATCH',
       headers: this.headers,
+      credentials: 'include',
       body: JSON.stringify({
         name: name,
         email: email
