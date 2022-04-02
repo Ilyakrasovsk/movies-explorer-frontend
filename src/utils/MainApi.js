@@ -44,6 +44,7 @@ class MainApi {
   addNewMovie(movie) {
     return fetch(`${this.baseUrl}/movies/`, {
       method: 'POST',
+      credentionals: 'include',
       headers: this.headers,
       body: JSON.stringify({
         country: movie.country,
@@ -65,6 +66,7 @@ class MainApi {
   getMovies() {
     return fetch(`${this.baseUrl}/movies/`, {
       method: 'GET',
+      credentionals: 'include',
       headers: this.headers,
     })
 
@@ -74,6 +76,7 @@ class MainApi {
   deleteMovie(movieId) {
     return fetch(`${this.baseUrl}/movies/${movieId}`, {
       method: 'DELETE',
+      credentionals: 'include',
       headers: this.headers,
     })
         .then(this._checkResponse)
