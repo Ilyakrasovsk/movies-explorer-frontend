@@ -29,7 +29,7 @@ function Login(props) {
             <span className='register__form_span'>{errors.password}</span>
             <button type='submit' className='login__button'>Войти</button>
           </form>
-          <p className='login__enter-text'>Ещё не зарегестрированы? <Link className='login__enter-link' to={'/sign-up'}>Регистрация</Link></p>
+          <p className='login__enter-text'>Ещё не зарегестрированы? <Link className='login__enter-link' to={'/signup'}>Регистрация</Link></p>
         </div>
     </section>
   )
