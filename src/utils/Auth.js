@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://api.diplom.ilkras.nomoredomains.work';
+export const BASE_URL = 'https://api.diplom.ilkras.nomoredomains.work';
 
 
 export const registration = ({name, email, password}) => {
@@ -17,6 +17,7 @@ export const registration = ({name, email, password}) => {
 export const authorization = ({email, password}) => {
     return fetch(`${BASE_URL}/signin`, {
         method: 'POST',
+        credentionals: 'include',
         headers: {
           'Accept': 'application/json',
           "Content-Type": "application/json"
@@ -26,13 +27,14 @@ export const authorization = ({email, password}) => {
         .then(checkResponse)
 }
 
-export const getContent = (token) => {
+export const getContent = (jwt) => {
     return fetch(`${BASE_URL}/users/me`, {
         method: 'GET',
+        credentionals: 'include',
         headers: {
             'Accept': 'application/json',
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`
+            "Authorization": `Bearer ${jwt}`
         }
     })
         .then(checkResponse)

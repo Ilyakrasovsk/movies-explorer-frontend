@@ -17,7 +17,7 @@ function Login(props) {
           <h3 className='login__title'>Рады видеть!</h3>
           <form className='login__form' onSabmit={props.handleSubmit}>
             <label htmlFor='email' className='login__label'>E-mail</label>
-            <input type='email' name='email' id='email' className='login__input' pattern="^((([0-9A-Za-z]{1}[-0-9A-z\.]{0,30}[0-9A-Za-z]?)|([0-9А-Яа-я]{1}[-0-9А-я\.]{0,30}[0-9А-Яа-я]?))@([-A-Za-z]{1,}\.){1,}[-A-Za-z]{2,})$"
+            <input type='email' name='name' id='email' className='login__input' pattern="^((([0-9A-Za-z]{1}[-0-9A-z\.]{0,30}[0-9A-Za-z]?)|([0-9А-Яа-я]{1}[-0-9А-я\.]{0,30}[0-9А-Яа-я]?))@([-A-Za-z]{1,}\.){1,}[-A-Za-z]{2,})$"
             onChange={handleChange}
             required />
             <span className='register__form_span'>{errors.email}</span>

@@ -19,6 +19,7 @@ class MainApi {
     return fetch(`${this.baseUrl}/users/me/`, {
       method: 'GET',
       headers: this.headers,
+      credentials: 'include'
     })
         .then(this._checkResponse)
   }
@@ -28,6 +29,7 @@ class MainApi {
     return fetch(`${this.baseUrl}/users/me/`, {
       method: 'PATCH',
       headers: this.headers,
+      credentials: 'include',
       body: JSON.stringify({
         name: name,
         email: email
@@ -43,6 +45,7 @@ class MainApi {
   addNewMovie(movie) {
     return fetch(`${this.baseUrl}/movies/`, {
       method: 'POST',
+      credentionals: 'include',
       headers: this.headers,
       body: JSON.stringify({
         country: movie.country,
@@ -64,6 +67,7 @@ class MainApi {
   getMovies() {
     return fetch(`${this.baseUrl}/movies/`, {
       method: 'GET',
+      credentionals: 'include',
       headers: this.headers,
     })
 
@@ -73,6 +77,7 @@ class MainApi {
   deleteMovie(movieId) {
     return fetch(`${this.baseUrl}/movies/${movieId}`, {
       method: 'DELETE',
+      credentionals: 'include',
       headers: this.headers,
     })
         .then(this._checkResponse)
@@ -81,10 +86,10 @@ class MainApi {
 }
 
 const newMainApi = new MainApi({
-  baseUrl: "http://api.diplom.ilkras.nomoredomains.work",
+  baseUrl: "https://api.diplom.ilkras.nomoredomains.work",
   headers: {
     authorization: `Bearer ${localStorage.getItem('jwt')}`,
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
   }
 })
 
