@@ -72,7 +72,7 @@ function App() {
 
   }, [history, loggedIn])
 
-  const tokenCheck() {
+  const tokenCheck = () => {
     if (localStorage.getItem('jwt')) {
       let jwt = localStorage.getItem('jwt');
       Auth.getContent(jwt)
