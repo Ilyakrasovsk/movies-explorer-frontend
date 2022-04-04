@@ -42,7 +42,7 @@ class MainApi {
   addNewMovie(movie) {
     return fetch(this.baseUrl + '/movies', {
       method: 'POST',
-      headers: this.headers
+      headers: this.headers,
       body: JSON.stringify({
         country: movie.country,
         director: movie.director,
