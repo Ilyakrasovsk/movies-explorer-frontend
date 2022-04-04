@@ -17,7 +17,7 @@ class MainApi {
 
   getProfileInfo() {
     return fetch(this.baseUrl + '/users/me', {
-      headers: this.headers,
+      headers: this.headers
     })
         .then(this._checkResponse)
   }
@@ -42,7 +42,7 @@ class MainApi {
   addNewMovie(movie) {
     return fetch(this.baseUrl + '/movies', {
       method: 'POST',
-      headers: this.headers,
+      headers: this.headers
       body: JSON.stringify({
         country: movie.country,
         director: movie.director,
@@ -63,7 +63,7 @@ class MainApi {
   getMovies() {
     return fetch(this.baseUrl + '/movies', {
       method: 'GET',
-      headers: this.headers,
+      headers: this.headers
     })
 
         .then(this._checkResponse)
@@ -72,7 +72,7 @@ class MainApi {
   deleteMovie(movieId) {
     return fetch(`${this.baseUrl}/movies/${movieId}`, {
       method: 'DELETE',
-      headers: this.headers,
+      headers: this.headers
     })
         .then(this._checkResponse)
 
