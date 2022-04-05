@@ -63,7 +63,7 @@ class MainApi {
   getMovies() {
     return fetch(this.baseUrl + '/movies', {
       method: 'GET',
-      headers: this.headers,
+      headers: this.headers
     })
 
         .then(this._checkResponse)
@@ -72,7 +72,7 @@ class MainApi {
   deleteMovie(movieId) {
     return fetch(this.baseUrl + `/movies/${movieId}`, {
       method: 'DELETE',
-      headers: this.headers,
+      headers: this.headers
     })
         .then(this._checkResponse)
 

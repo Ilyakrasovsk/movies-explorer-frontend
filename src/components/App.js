@@ -72,22 +72,6 @@ function App() {
 
   }, [history, loggedIn])
 
-  const tokenCheck = () => {
-    if (localStorage.getItem('jwt')) {
-      let jwt = localStorage.getItem('jwt');
-      Auth.getContent(jwt)
-        .then(({_id, email, name}) => {
-          if (email) {
-            setLoggedIn(true);
-            setCurrentUser({_id, email, name})
-          }
-        })
-        .catch((err) => {
-          console.log('error', err)
-        })
-    }
-  }
-
   function handleRegistration({name, email, password}) {
     Auth.registration({name, email, password})
       .then(() => {
@@ -116,6 +100,21 @@ function App() {
         setStatusOk(false);
         console.log('error', err)
       })
+  }
+  const tokenCheck = () => {
+    if (localStorage.getItem('jwt')) {
+      let jwt = localStorage.getItem('jwt');
+      Auth.getContent(jwt)
+        .then(({_id, email, name}) => {
+          if (email) {
+            setLoggedIn(true);
+            setCurrentUser({_id, email, name})
+          }
+        })
+        .catch((err) => {
+          console.log('error', err)
+        })
+    }
   }
 
   function handleLogOut() {
