@@ -50,7 +50,7 @@ class MainApi {
         year: movie.year,
         description: movie.description,
         image: beatFilmUrl + movie.image.url,
-        trailer: movie.trailerLink,
+        trailerLink: movie.trailerLink,
         thumbnail:beatFilmUrl + movie.image.formats.thumbnail.url,
         nameRU: movie.nameRU,
         nameEN: movie.nameEN,
@@ -63,16 +63,16 @@ class MainApi {
   getMovies() {
     return fetch(this.baseUrl + '/movies', {
       method: 'GET',
-      headers: this.headers
+      headers: this.headers,
     })
 
         .then(this._checkResponse)
   }
 
   deleteMovie(movieId) {
-    return fetch(`${this.baseUrl}/movies/${movieId}`, {
+    return fetch(this.baseUrl + `/movies/${movieId}`, {
       method: 'DELETE',
-      headers: this.headers
+      headers: this.headers,
     })
         .then(this._checkResponse)
 
