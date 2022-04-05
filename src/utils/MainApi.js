@@ -19,7 +19,7 @@ class MainApi {
     return fetch(this.baseUrl + '/users/me', {
       headers: this.headers
     })
-        .then(this._checkResponse)
+    .then(this._checkResponse)
   }
 
 
@@ -32,7 +32,7 @@ class MainApi {
         email: email
       })
     })
-        .then(this._checkResponse)
+    .then(this._checkResponse)
   }
 
   setToken() {
@@ -65,8 +65,7 @@ class MainApi {
       method: 'GET',
       headers: this.headers
     })
-
-        .then(this._checkResponse)
+    .then(this._checkResponse)
   }
 
   deleteMovie(movieId) {
@@ -74,7 +73,7 @@ class MainApi {
       method: 'DELETE',
       headers: this.headers
     })
-        .then(this._checkResponse)
+    .then(this._checkResponse)
 
   }
 }
