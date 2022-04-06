@@ -13,8 +13,8 @@ function Movies(props) {
             <MoviesHeader />
             <Menu />
             <SearchForm onSearch={props.onSearch} isActive={props.isActive} handleChange={props.handleChange} />
-            <Preloader isOn={props.isPreloaderOn}/>
-            <MoviesCards counterMoviesSearch={props.counterMoviesSearch} movies={props.moviesLocalStorage} setLike={props.saveMovie} setDislike={props.deleteMovie} savedMovies={props.savedMovies}/>
+            <Preloader isOn={props.isPreloaderOn} />
+            <MoviesCards counterMoviesSearch={props.counterMoviesSearch} movies={props.moviesLocalStorage} setLike={props.saveMovie} setDislike={props.deleteMovie} savedMovies={props.savedMovies} />
             <Footer />
         </main>
     )
