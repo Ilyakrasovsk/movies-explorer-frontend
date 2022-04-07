@@ -15,7 +15,7 @@ function MoviesCards(props) {
       setRenderedMoviesCount(renderedMoviesCount+3)
     }
   }
-  console.log(props);
+  console.log(props.movies);
     return(
         <section className="cards">
             <div className="cards__container">
