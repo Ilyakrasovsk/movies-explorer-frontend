@@ -6,50 +6,55 @@ import {CurrentUserContext} from "../../contexts/CurrentUserContext";
 import useFormWithValidation from "../../hooks/useValidation";
 
 export const Profile = (props) => {
-    const currentUser = React.useContext(CurrentUserContext);
-    const {values, handleChange, errors, isValid} = useFormWithValidation()
-    const nameProfile = localStorage.getItem('profile');
     const overlayProfile = document.querySelector('.profile__overlay');
-    const isCurrentName = values.name === currentUser.name;
-    const isCurrentEmail = values.email === currentUser.email;
-    let apple;
-    if(nameProfile != null){
-        apple = nameProfile;
-    }
-    else {
-        apple = currentUser.name
-    }
-    function handleSubmit(e){
-        e.preventDefault()
-        const {name, email} = values;
-        props.onUpdateUser({name, email});
-        overlayProfile.classList.add('profile__overlay_active');
 
+    const {name, email} = React.useContext(CurrentUserContext);
+    const {values, handleChange, errors, isValid} = useFormWithValidation({
+        name: '',
+        email: '',
+    })
+    const [hasChanges, setHasChanges] = React.useState(false);
+
+    React.useEffect(() => {
+        values.name = name;
+        values.email = email;
+    }, []);
+
+    React.useEffect(() => {
+        setHasChanges((values.name !== name) || (values.email !== email));
+    }, [values.name, values.email, name, email]);
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        props.onUpdateUser({ name: values.name || name, email: values.email || email });
+        overlayProfile && overlayProfile.classList.add('profile__overlay_active');
     }
     function closeOverlay(){
-        overlayProfile.classList.remove('profile__overlay_active')
+        overlayProfile && overlayProfile.classList.remove('profile__overlay_active')
     }
     return (
         <>
         <MoviesHeader />
         <section className="profile">
             <form className="profile__container" onSubmit={handleSubmit}>
-                <h3 className="profile__title">{`Привет, ${apple}!`}</h3>
+                <h3 className="profile__title">{`Привет, ${name}!`}</h3>
                 <div className="profile__text-container">
                     <div className="profile__text-content">
-                        <p className="profile__name">Имя</p>
-                        <input id="profile__input-name" type="text" name="name" value={values.name} placeholder={currentUser.name} required minLength="2" maxLength="30" onChange={handleChange} className="profile__name"/>
+                        <p className="profile__label">Имя</p>
+                        <input id="profile__input-name" type="text" name="name" value={values.name||name} placeholder={name} required minLength="2" maxLength="30" onChange={handleChange} className="profile__input"/>
                     </div>
                     <span>{errors.name}</span>
                     <div className="profile__text-content">
-                        <p className="profile__email">E-mail</p>
-                        <input id="profile__input-name" type="email" name="email" value={values.email} placeholder={currentUser.email} required minLength="2" maxLength="30" onChange={handleChange} className="profile__email"/>
+                        <p className="profile__label">E-mail</p>
+                        <input id="profile__input-name" type="email" name="email" value={values.email||email} placeholder={email} required minLength="2" maxLength="30" onChange={handleChange} className="profile__input"/>
                     </div>
                     <span>{errors.email}</span>
                 </div>
                 <div className="profile__links">
-                    <button type="submit" className={`${isValid && isCurrentEmail && isCurrentName ? 'profile__link-redact' : 'profile__link-redact profile__edit-button_novalidate'}`} disabled={isValid && isCurrentEmail && isCurrentName}>Редактировать</button>
-                    <Link onClick={props.onLogOut} className="profile__link-exit">Выйти из аккаунта</Link>
+                    <button type='submit'
+                        disabled={!hasChanges || !isValid}
+                        className={`${ (!isValid || !hasChanges || props.isLoading) ? 'profile__link-redact' : 'profile__link-redact profile__edit-button_novalidate'}`}>Редактировать</button>
+                    <Link to="/" onClick={props.onLogOut} className="profile__link-exit">Выйти из аккаунта</Link>
                 </div>
             </form>
 

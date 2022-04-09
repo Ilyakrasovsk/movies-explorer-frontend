@@ -15,7 +15,7 @@ function Login(props) {
         <div>
           <img className='login__icon' alt='Логотип' src={logo} />
           <h3 className='login__title'>Рады видеть!</h3>
-          <form className='login__form' onSabmit={props.handleSubmit}>
+          <form className='login__form' onSubmit={handleSubmit}>
             <label htmlFor='email' className='login__label'>E-mail</label>
             <input type='email' name='email' id='email' className='login__input' pattern="^((([0-9A-Za-z]{1}[-0-9A-z\.]{0,30}[0-9A-Za-z]?)|([0-9А-Яа-я]{1}[-0-9А-я\.]{0,30}[0-9А-Яа-я]?))@([-A-Za-z]{1,}\.){1,}[-A-Za-z]{2,})$"
             onChange={handleChange}

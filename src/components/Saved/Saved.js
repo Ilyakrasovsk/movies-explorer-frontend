@@ -6,13 +6,12 @@ import Footer from "../Footer";
 import Menu from "../Menu/Menu";
 
 function Saved(props) {
-  const moviesLocalStorage = JSON.parse(localStorage.getItem('saved-movies'));
     return(
         <main>
             <MoviesHeader />
             <Menu />
-            <SearchForm onSearch={props.onSearch} isActive={props.isActive} handleChange={props.handleChange} />
-            <SavedMovieCards countMoviesSavedSearch={props.countSavedMoviesSearch} savedLike={moviesLocalStorage} movies={moviesLocalStorage} setLike={props.saveMovie} setDislike={props.deleteMovie} savedMovies={props.savedMovies}
+            <SearchForm onSearch={props.onSearch} searchState={props.searchState} handleChange={props.handleChange} searchQueryRequired={props.searchQueryRequired} />
+            <SavedMovieCards counterMoviesSearch={props.counterMoviesSearch} movies={props.movies} savedMovies={props.savedMovies} setLike={props.saveMovie} setDislike={props.deleteMovie}
             />
             <Footer />
         </main>

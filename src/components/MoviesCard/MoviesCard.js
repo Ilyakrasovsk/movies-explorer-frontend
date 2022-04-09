@@ -12,11 +12,14 @@ function MoviesCard(props) {
     }
   }
   function onClick() {
-    window.open(props.movie.trailerLink);
+      if(props.movie.trailerLink.trim() != '')
+      {
+          window.open(props.movie.trailerLink);
+      }
   }
 
   const durationHour = Math.floor(props.movie.duration / 60)
-  const durationMinutes = Math.round(props.movie.duration % 60)
+  const durationMinutes = Math.round(props.movie.duration - durationHour * 60)
   let buttonClass = 'movies-card__button'
   if (isLiked) {
     buttonClass = 'movies-card__button-ok'
@@ -24,7 +27,6 @@ function MoviesCard(props) {
     buttonClass = 'movies-card__button'
   }
     return(
-        <>
         <article className="movies-card">
             <div className="movies-card__container">
                 <div className="movies-card__image-container">
@@ -45,7 +47,6 @@ function MoviesCard(props) {
 
             </div>
         </article>
-        </>
     )
 }
 export default MoviesCard;

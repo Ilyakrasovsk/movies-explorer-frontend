@@ -40,20 +40,22 @@ class MainApi {
   }
 
   addNewMovie(movie) {
+    let thumbnail = beatFilmUrl + movie.image.formats.thumbnail.url;
+    let image = beatFilmUrl + movie.image.url;
     return fetch(this.baseUrl + '/movies', {
       method: 'POST',
       headers: this.headers,
       body: JSON.stringify({
-        country: movie.country,
-        director: movie.director,
-        duration: movie.duration,
-        year: movie.year,
-        description: movie.description,
-        image: beatFilmUrl + movie.image.url,
-        trailerLink: movie.trailerLink,
-        thumbnail:beatFilmUrl + movie.image.formats.thumbnail.url,
-        nameRU: movie.nameRU,
-        nameEN: movie.nameEN,
+        country: movie.country ? movie.country : ' ',
+        director: movie.director ? movie.director : ' ',
+        duration: movie.duration ? movie.duration : ' ',
+        year: movie.year ? movie.year : ' ',
+        description: movie.description ? movie.description : ' ',
+        image: movie.image?.url ? beatFilmUrl + movie.image.url : ' ',
+        trailerLink: movie.trailerLink ? movie.trailerLink : ' ',
+        thumbnail: movie.image?.formats?.thumbnail?.url ? beatFilmUrl + movie.image.formats.thumbnail.url : ' ',
+        nameRU: movie.nameRU ? movie.nameRU : ' ',
+        nameEN: movie.nameEN ? movie.nameEN : ' ',
         movieId: movie.id,
       })
     })

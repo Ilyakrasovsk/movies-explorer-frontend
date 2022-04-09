@@ -15,26 +15,28 @@ function SavedMovieCards(props) {
         }else{
             setRenderedMoviesCount(renderedMoviesCount+3)
         }
-
     }
+
+    React.useEffect(() => {
+        setRenderedMoviesCount(6);
+    }, [props.movies]);
+
     return(
         <section className="cards">
             <div className="cards__container">
-            {props.countMoviesSavedSearch && <span>Ничего не найдено</span>}
+            {!props.movies && <span>Ничего не найдено</span>}
                 {
-                    !(props.countMoviesSavedSearch) && props.movies.slice(0, renderedMoviesCount).map((movie) =>
+                    props.movies && props.movies.slice(0, renderedMoviesCount).map((movie) =>
                       (
-                        <>
-                          <SavedMovieCard  movie={movie} key={movie.movieId ? movie.movieId : movie.id}
-                          setLike={props.setLike}
-                          setDislike={props.setDislike}
-                          fromSaved={props.savedLike}
-                          />
-                        </>
+                        <SavedMovieCard  movie={movie} key={movie.movieId ? movie.movieId : movie.id}
+                        setLike={props.setLike}
+                        setDislike={props.setDislike}
+                        fromSaved={props.savedLike}
+                        />
                       ))
                 }
             </div>
-            { props.movies.length > 6 && !(props.countMoviesSavedSearch) && (
+            { (props.movies.length > renderedMoviesCount) && (
               <div className="cards__button-container">
                 <button onClick={clickButtonMoreFilm} className={'cards__more'}>
                   Ещё

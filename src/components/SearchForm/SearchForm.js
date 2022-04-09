@@ -15,14 +15,15 @@ function SearchForm(props) {
                                placeholder="Фильм"
                                minLength="1"
                                maxLength="200"
-                               required
-                               autoComplete="off" />
+                               autoComplete="off"
+                               required={props.searchQueryRequired}
+                               defaultValue={props.searchState.query} />
                         <button
                             className="search__button" type="submit">
                             <img src={find} className="search__image" />
                         </button>
                   </div>
-                  <ToggleSwitch isActive={props.isActive} handleChange={props.handleChange}/>
+                  <ToggleSwitch isActive={props.searchState.short} handleChange={props.handleChange}/>
                 </form>
             </div>
         </section>
