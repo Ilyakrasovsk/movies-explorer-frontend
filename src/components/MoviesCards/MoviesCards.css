@@ -57,3 +57,19 @@
 .cards__more_disabled {
   display: none;
 }
+.nothing-found-btw {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Inter, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #8b8b8b;
+    padding: 54px 15px;
+    border-radius: 3px;
+    background-color: #202020;
+    margin: 0;
+}

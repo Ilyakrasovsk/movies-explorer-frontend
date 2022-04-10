@@ -9,6 +9,7 @@ export default function useFormWithValidation() {
         const input = evt.target;
         const value = input.value;
         const name = input.name;
+        console.log(name,value);
         setValues({ ...values, [name]: value });
         setErrors({ ...errors, [name]: input.validationMessage });
         setIsValid(input.closest("form").checkValidity());

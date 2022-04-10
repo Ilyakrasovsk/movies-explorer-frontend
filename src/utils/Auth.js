@@ -1,8 +1,6 @@
-export const BASE_URL = 'http://api.diplom.ilkras.nomoredomains.work';
-
+import {BASE_URL} from "./constants";
 
 export const registration = ({name, email, password}) => {
-    console.log({name, email, password})
     return fetch(`${BASE_URL}/signup`, {
         method: 'POST',
         headers: {
@@ -11,7 +9,7 @@ export const registration = ({name, email, password}) => {
         },
         body: JSON.stringify({name, email, password})
     })
-        .then(checkResponse)
+    .then(checkResponse)
 }
 
 export const authorization = ({email, password}) => {
@@ -23,7 +21,7 @@ export const authorization = ({email, password}) => {
         },
         body: JSON.stringify({email, password})
     })
-        .then(checkResponse)
+    .then(checkResponse)
 }
 
 export const getContent = (token) => {
@@ -35,7 +33,7 @@ export const getContent = (token) => {
             "Authorization": `Bearer ${token}`
         }
     })
-        .then(checkResponse)
+    .then(checkResponse)
 }
 
 export const checkResponse = (res) => {

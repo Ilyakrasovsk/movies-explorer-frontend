@@ -1,10 +1,11 @@
 .header{
     display: flex;
-    margin: auto;
+    margin: 0px;
     height: 74px;
     background: #073042;
     width: 100%;
     max-width: 100%;
+    justify-content: space-between;
 }
 .header__text{
     margin: 0 auto;

@@ -9,7 +9,7 @@ function ToggleSwitch(props) {
                 className={'toggle-switch__checkbox'}
                 name="toggleSwitch"
                 id="toggleSwitch"
-                value={props.isActive}
+                checked={props.isActive}
                 onChange={props.handleChange}
             />
             <label className="toggle-switch__label">Короткометражки</label>

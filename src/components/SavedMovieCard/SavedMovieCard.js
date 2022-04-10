@@ -16,10 +16,10 @@ function SavedMovieCard(props) {
               <div  className="movies-card__image-container">
 
                   <button
-                      className={`movies-card__button-ok`}
+                      className={`movies-card__button-remove`}
                       type="button"
                       aria-label="Bookmark Button"
-                      value="Сохранить"
+                      value="Удалить"
                       onClick={() => props.setDislike(props.movie._id)}
                   ></button>
                   <img className="movies-card__image" src={props.movie.image} onClick={onClick} />

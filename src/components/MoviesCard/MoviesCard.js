@@ -1,5 +1,5 @@
 import React from "react";
-import {beatFilmUrl} from "../../utils/constants";
+import {BEAT_FILM_URL} from "../../utils/constants";
 
 function MoviesCard(props) {
   const isLiked = props.fromSaved.some(({ movieId }) => props.movie.id === movieId)
@@ -37,7 +37,7 @@ function MoviesCard(props) {
                         value="Сохранить"
                         onClick={handleLike}
                     ></button>
-                    <img className="movies-card__image" src={beatFilmUrl + props.movie.image.url} onClick={onClick} />
+                    <img className="movies-card__image" src={BEAT_FILM_URL + props.movie.image.url} onClick={onClick} />
 
                 </div>
                 <div className="movie-card__info">

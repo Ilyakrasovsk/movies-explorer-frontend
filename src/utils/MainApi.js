@@ -1,4 +1,4 @@
-import {beatFilmUrl} from "./constants";
+import {BEAT_FILM_URL} from "./constants";
 
 class MainApi {
   constructor(options) {
@@ -8,7 +8,6 @@ class MainApi {
 
   _checkResponse(res) {
     if (res.ok) {
-      console.log(res)
       return res.json();
     }
     return Promise.reject(`Ошибка ${res.status}`);
@@ -40,8 +39,6 @@ class MainApi {
   }
 
   addNewMovie(movie) {
-    let thumbnail = beatFilmUrl + movie.image.formats.thumbnail.url;
-    let image = beatFilmUrl + movie.image.url;
     return fetch(this.baseUrl + '/movies', {
       method: 'POST',
       headers: this.headers,
@@ -51,9 +48,9 @@ class MainApi {
         duration: movie.duration ? movie.duration : ' ',
         year: movie.year ? movie.year : ' ',
         description: movie.description ? movie.description : ' ',
-        image: movie.image?.url ? beatFilmUrl + movie.image.url : ' ',
+        image: movie.image?.url ? BEAT_FILM_URL + movie.image.url : ' ',
         trailerLink: movie.trailerLink ? movie.trailerLink : ' ',
-        thumbnail: movie.image?.formats?.thumbnail?.url ? beatFilmUrl + movie.image.formats.thumbnail.url : ' ',
+        thumbnail: movie.image?.formats?.thumbnail?.url ? BEAT_FILM_URL + movie.image.formats.thumbnail.url : ' ',
         nameRU: movie.nameRU ? movie.nameRU : ' ',
         nameEN: movie.nameEN ? movie.nameEN : ' ',
         movieId: movie.id,

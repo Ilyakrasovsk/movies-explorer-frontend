@@ -54,6 +54,7 @@
 }
 .profile__label,
 .profile__input{
+    display: inline-flex;
     margin: 0 0 16px;
     font-family: Inter, serif;
     font-style: normal;
@@ -61,12 +62,14 @@
     font-size: 11px;
     line-height: 13px;
     /* identical to box height */
-
     text-align: right;
-
     color: #fff;
 }
+.profile__label {
+    flex-shrink: 0;
+}
 .profile__input {
+    flex-grow: 1;
     background-color: #202020;
     border: none;
     padding: 0px;
@@ -78,18 +81,14 @@
     box-shadow: inset 0px 0px 0px 50px #202020;
     -webkit-text-fill-color: #fff;
 }
-.profile__email{
-    font-family: Inter, serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 11px;
-    line-height: 13px;
-    /* identical to box height */
-
+.profile__input-error {
+    color: #f00;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
     text-align: right;
-
-    color: #fff;
-    margin: 17px 0 16px;
+    margin: 10px 0px 15px 0px;
+    max-width: 100%;
 }
 .profile__text-content:first-of-type{
     border-bottom: 1px solid #E8E8E8;

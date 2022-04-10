@@ -1,7 +1,7 @@
 .footer{
     max-width: 100%;
     background: #202020;
-    margin: auto;
+    margin: auto 0px 0px 0px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;

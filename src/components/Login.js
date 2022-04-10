@@ -1,33 +1,79 @@
+import React, { useState, useEffect, useContext } from 'react';
 import logo from '../images/logo.svg';
-import useFormWithValidation from "../hooks/useValidation";
 import {Link} from "react-router-dom";
 
 function Login(props) {
-  const {values, handleChange, errors} = useFormWithValidation()
+  const validator = require('validator');
+
+  const [inputValues, setInputValues] = useState({password: '', email: ''});
+  const [inputErrors, setInputErrors] = useState({password: '', email: ''});
+  const [inputValid, setInputValid] = useState({password: false, email: false});
+
+  const isNotChange = false;
+
+  function validateField(input) {
+      if (input.name === 'password')
+          return input.validity.valid
+      else if (input.name === 'email')
+          return validator.isEmail(input.value) && input.validity.valid
+  }
+
+  function handleValuesChange(e) {
+      setInputValues({
+          ...inputValues,
+          [e.target.name]: e.target.value
+      });
+      setInputValid({
+          ...inputValid,
+          [e.target.name]: validateField(e.target)
+      });
+      setInputErrors({
+          ...inputValid,
+          [e.target.name]: e.target.validationMessage
+      });
+  }
 
   function handleSubmit(e) {
-    e.preventDefault();
-    const {email, password} = values;
-    props.onAutorization({email, password})
+      e.preventDefault();
+      props.onAutorization({
+          password: inputValues.password,
+          email: inputValues.email,
+      });
   }
+
   return (
     <section className='login'>
         <div>
+          <Link to={'/'}>
           <img className='login__icon' alt='Логотип' src={logo} />
+          </Link>
           <h3 className='login__title'>Рады видеть!</h3>
           <form className='login__form' onSubmit={handleSubmit}>
             <label htmlFor='email' className='login__label'>E-mail</label>
-            <input type='email' name='email' id='email' className='login__input' pattern="^((([0-9A-Za-z]{1}[-0-9A-z\.]{0,30}[0-9A-Za-z]?)|([0-9А-Яа-я]{1}[-0-9А-я\.]{0,30}[0-9А-Яа-я]?))@([-A-Za-z]{1,}\.){1,}[-A-Za-z]{2,})$"
-            onChange={handleChange}
-            required />
-            <span className='register__form_span'>{errors.email}</span>
+            <input
+                id="email"
+                type="email"
+                name='email'
+                className="login__input"
+                value={inputValues.email}
+                placeholder="Ввeдите email"
+                onChange={handleValuesChange}
+                required/>
+            { (!inputValid.email) ? (<span className="register__form_span">{inputErrors.email}</span>) : ('') }
             <label htmlFor='password' className='login__label'>Пароль</label>
-            <input id='password' name='password' type='password' className='login__input' minLength="8"
-            maxLength="20"
-            required
-            onChange={handleChange}/>
-            <span className='register__form_span'>{errors.password}</span>
-            <button type='submit' className='login__button'>Войти</button>
+            <input
+                id="password"
+                type="password"
+                name='password'
+                className="login__input"
+                minLength="8"
+                maxLength="20"
+                value={inputValues.password}
+                placeholder="Ввeдите пароль"
+                onChange={handleValuesChange}
+                required/>
+            { (!inputValid.password) ? (<span className="register__form_span">{inputErrors.password}</span>) : ('') }
+            <button type='submit' className='login__button' disabled={(!inputValid.email || !inputValid.password) || isNotChange}>Войти</button>
           </form>
           <p className='login__enter-text'>Ещё не зарегестрированы? <Link className='login__enter-link' to={'/signup'}>Регистрация</Link></p>
         </div>

@@ -1,18 +1,23 @@
 import MoviesCard from "../MoviesCard/MoviesCard";
 import React from "react";
 import { useMediaQuery } from 'react-responsive';
+import { BASE_CARDS_COUNT, PC_CARDS_COUNT_RAISE, TABLET_CARDS_COUNT_RAISE, MOBILE_CARDS_COUNT_RAISE } from "../../utils/constants";
+
+
+
+
 
 function MoviesCards(props) {
-  const [renderedMoviesCount, setRenderedMoviesCount ] = React.useState(6);
+  const [renderedMoviesCount, setRenderedMoviesCount ] = React.useState(BASE_CARDS_COUNT);
   const isTablet = useMediaQuery({ query: '(max-width: 1270px)' });
   const isMobile = useMediaQuery({ query: '(max-width: 710px)' });
   function clickButtonMoreFilm() {
     if(isMobile) {
-      setRenderedMoviesCount(renderedMoviesCount+1)
+      setRenderedMoviesCount(renderedMoviesCount+MOBILE_CARDS_COUNT_RAISE)
     }else if(isTablet) {
-      setRenderedMoviesCount(renderedMoviesCount+2)
+      setRenderedMoviesCount(renderedMoviesCount+TABLET_CARDS_COUNT_RAISE)
     }else {
-      setRenderedMoviesCount(renderedMoviesCount+3)
+      setRenderedMoviesCount(renderedMoviesCount+PC_CARDS_COUNT_RAISE)
     }
   }
 
@@ -22,28 +27,33 @@ function MoviesCards(props) {
 
     return(
         <section className="cards">
-            <div className="cards__container">
-            {!props.movies && <span>Ничего не найдено</span>}
-              {
-                props.movies && props.movies.slice(0, renderedMoviesCount).map((movie) =>
-                (
-                  <MoviesCard  movie={movie} key={movie.movieId ? movie.movieId : movie.id}
-                    setLike={props.setLike} setDislike={props.setDislike} fromSaved={props.savedMovies}
-                  />
-                ))
-              }
+        {
+            (!props.movies.length)
+            ?
+            ( <span className="nothing-found-btw">Ничего не найдено</span> )
+            :
+            (
+                <div className="cards__container">
+                {
+                    props.movies.slice(0, renderedMoviesCount).map((movie) =>
+                    (
+                      <MoviesCard  movie={movie} key={movie.movieId ? movie.movieId : movie.id}
+                        setLike={props.setLike} setDislike={props.setDislike} fromSaved={props.savedMovies}
+                      />
+                    ))
+                }
             </div>
-            <>
-            {
-              (props.movies.length > renderedMoviesCount) && (
-                <div className="cards__button-container">
-                    <button onClick={clickButtonMoreFilm} className="cards__more">
-                        Ещё
-                    </button>
-                </div>
-              )
-            }
-            </>
+            )
+        }
+        {
+          (props.movies.length > renderedMoviesCount) && (
+            <div className="cards__button-container">
+                <button onClick={clickButtonMoreFilm} className="cards__more">
+                    Ещё
+                </button>
+            </div>
+          )
+        }
         </section>
     )
 }

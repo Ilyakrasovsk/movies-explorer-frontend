@@ -1,32 +1,58 @@
-import React from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './Profile.css';
 import MoviesHeader from "../MoviesHeader/MoviesHeader";
 import {CurrentUserContext} from "../../contexts/CurrentUserContext";
-import useFormWithValidation from "../../hooks/useValidation";
 
 export const Profile = (props) => {
     const overlayProfile = document.querySelector('.profile__overlay');
 
-    const {name, email} = React.useContext(CurrentUserContext);
-    const {values, handleChange, errors, isValid} = useFormWithValidation({
-        name: '',
-        email: '',
-    })
-    const [hasChanges, setHasChanges] = React.useState(false);
+    const validator = require('validator');
 
-    React.useEffect(() => {
-        values.name = name;
-        values.email = email;
-    }, []);
+    const [inputValues, setInputValues] = useState({name: '', email: ''});
+    const [inputErrors, setInputErrors] = useState({name: '', email: ''});
+    const [inputValid, setInputValid] = useState({name: false, email: false});
 
-    React.useEffect(() => {
-        setHasChanges((values.name !== name) || (values.email !== email));
-    }, [values.name, values.email, name, email]);
+    //Подписываемся на контекст
+    const currentUser = useContext(CurrentUserContext);
+
+    const isNotChange = currentUser.email === inputValues.email && currentUser.name === inputValues.name;
+
+    useEffect(() => {
+        if (currentUser) {
+            setInputValues({name: currentUser.name, email: currentUser.email});
+            setInputValid({name: true, email: true});
+        }
+    }, [currentUser]);
+
+    function validateField(input) {
+        if (input.name === 'name')
+            return input.validity.valid
+        else if (input.name === 'email')
+            return validator.isEmail(input.value) && input.validity.valid
+    }
+
+    function handleValuesChange(e) {
+        setInputValues({
+            ...inputValues,
+            [e.target.name]: e.target.value
+        });
+        setInputValid({
+            ...inputValid,
+            [e.target.name]: validateField(e.target)
+        });
+        setInputErrors({
+            ...inputValid,
+            [e.target.name]: e.target.validationMessage
+        });
+    }
 
     function handleSubmit(e) {
         e.preventDefault();
-        props.onUpdateUser({ name: values.name || name, email: values.email || email });
+        props.onUpdateUser({
+            name: inputValues.name,
+            email: inputValues.email,
+        });
         overlayProfile && overlayProfile.classList.add('profile__overlay_active');
     }
     function closeOverlay(){
@@ -37,23 +63,43 @@ export const Profile = (props) => {
         <MoviesHeader />
         <section className="profile">
             <form className="profile__container" onSubmit={handleSubmit}>
-                <h3 className="profile__title">{`Привет, ${name}!`}</h3>
+                <h3 className="profile__title">{`Привет, ${currentUser.name}!`}</h3>
                 <div className="profile__text-container">
                     <div className="profile__text-content">
                         <p className="profile__label">Имя</p>
-                        <input id="profile__input-name" type="text" name="name" value={values.name||name} placeholder={name} required minLength="2" maxLength="30" onChange={handleChange} className="profile__input"/>
+                        <input
+                            id="profile__input-name"
+                            type="text"
+                            name='name'
+                            className="profile__input"
+                            value={inputValues.name}
+                            placeholder="Ввeдите имя"
+                            onChange={handleValuesChange}
+                            minLength="2"
+                            maxLength="30"
+                            required/>
                     </div>
-                    <span>{errors.name}</span>
+                    { (!inputValid.name) ? (<span className="profile__input-error">{inputErrors.name}</span>) : ('') }
                     <div className="profile__text-content">
                         <p className="profile__label">E-mail</p>
-                        <input id="profile__input-name" type="email" name="email" value={values.email||email} placeholder={email} required minLength="2" maxLength="30" onChange={handleChange} className="profile__input"/>
+                        <input
+                            id="profile__input-name"
+                            type="email"
+                            name='email'
+                            className="profile__input"
+                            value={inputValues.email}
+                            placeholder="Ввeдите email"
+                            onChange={handleValuesChange}
+                            required/>
                     </div>
-                    <span>{errors.email}</span>
+                    { (!inputValid.email) ? (<span className="profile__input-error">{inputErrors.email}</span>) : ('') }
                 </div>
                 <div className="profile__links">
-                    <button type='submit'
-                        disabled={!hasChanges || !isValid}
-                        className={`${ (!isValid || !hasChanges || props.isLoading) ? 'profile__link-redact' : 'profile__link-redact profile__edit-button_novalidate'}`}>Редактировать</button>
+                    <button
+                        type='submit'
+                        className={`profile__link-redact ${(!inputValid.email || !inputValid.name) || isNotChange?'profile__edit-button_novalidate' : ''}`}
+                        disabled={(!inputValid.email || !inputValid.name) || isNotChange}
+                        >Редактировать</button>
                     <Link to="/" onClick={props.onLogOut} className="profile__link-exit">Выйти из аккаунта</Link>
                 </div>
             </form>
