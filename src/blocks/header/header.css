@@ -1,8 +1,26 @@
 .header{
     display: flex;
-    margin: auto;
+    margin: 0px;
     height: 74px;
     background: #073042;
     width: 100%;
     max-width: 100%;
+    justify-content: space-between;
+}
+.header__text{
+    margin: 0 auto;
+    color: #000000;
+}
+.movies__headermain-link {
+  color: white;
+  font-family: Inter, serif;
+  font-style: normal;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: right;
+  margin-top: 28px;
+}
+.movies__headermain-link:first-of-type {
+  margin-right: 16px;
 }

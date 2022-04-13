@@ -10,6 +10,9 @@
     height: 45px;
     border: none;
 }
+.login__button[disabled] {
+    opacity: 0.5;
+}
 @media (max-width: 450px) {
   .login__button{
     margin-top: 260px;

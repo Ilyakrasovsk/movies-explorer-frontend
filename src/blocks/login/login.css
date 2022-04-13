@@ -8,3 +8,12 @@
     height: 100vh;
     background-color: #202020;
 }
+.register__form_span {
+    color: #f00;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: right;
+    margin: 10px 0px 15px 0px;
+    max-width: 100%;
+}

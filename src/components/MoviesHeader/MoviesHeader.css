@@ -1,6 +1,6 @@
 .movies__header{
     display: flex;
-    margin: auto;
+    margin: 0px;
     height: 74px;
     width: 100%;
     max-width: 100%;
@@ -28,9 +28,6 @@
 .movies__header-container{
     margin-top: 21px;
     margin-right: 70px;
-}
-.movies__header-container-link{
-  text-decoration: none;
 }
 .movies__header-button{
     width: 100px;

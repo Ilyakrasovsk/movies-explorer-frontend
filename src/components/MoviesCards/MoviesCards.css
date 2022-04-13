@@ -23,26 +23,26 @@
     }
 }
 .cards__more{
-width: 320px;
-height: 36px;
-text-align: center;
-align-items: center;
-color: #fff;
-font-size: 12px;
-font-weight: 500;
-line-height: 15px;
-border: 1px solid #424242;
-border-radius: 5px;
-background-color: #202020;
+  width: 320px;
+  height: 36px;
+  text-align: center;
+  align-items: center;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  border: 1px solid #424242;
+  border-radius: 5px;
+  background-color: #202020;
 
 }
 .cards__button-container{
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-background-color: #202020;
-height: 166px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #202020;
+  height: 166px;
 }
 @media (max-width: 710px) {
     .cards__container{
@@ -53,4 +53,23 @@ height: 166px;
     .cards__more{
         width: 240px;
     }
+}
+.cards__more_disabled {
+  display: none;
+}
+.nothing-found-btw {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Inter, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #8b8b8b;
+    padding: 54px 15px;
+    border-radius: 3px;
+    background-color: #202020;
+    margin: 0;
 }

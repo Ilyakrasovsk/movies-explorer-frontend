@@ -1,29 +1,25 @@
-import MoviesCard from "../MoviesCard/MoviesCard";
-import React from "react";
-import { useMediaQuery } from 'react-responsive';
+import SavedMovieCard from "../SavedMovieCard/SavedMovieCard";
+import React, {useEffect} from "react";
+import {useMediaQuery} from "react-responsive";
 import { BASE_CARDS_COUNT, PC_CARDS_COUNT_RAISE, TABLET_CARDS_COUNT_RAISE, MOBILE_CARDS_COUNT_RAISE } from "../../utils/constants";
 
-
-
-
-
-function MoviesCards(props) {
-  const [renderedMoviesCount, setRenderedMoviesCount ] = React.useState(BASE_CARDS_COUNT);
-  const isTablet = useMediaQuery({ query: '(max-width: 1270px)' });
-  const isMobile = useMediaQuery({ query: '(max-width: 710px)' });
-  function clickButtonMoreFilm() {
-    if(isMobile) {
-      setRenderedMoviesCount(renderedMoviesCount+MOBILE_CARDS_COUNT_RAISE)
-    }else if(isTablet) {
-      setRenderedMoviesCount(renderedMoviesCount+TABLET_CARDS_COUNT_RAISE)
-    }else {
-      setRenderedMoviesCount(renderedMoviesCount+PC_CARDS_COUNT_RAISE)
+function SavedMovieCards(props) {
+    const [renderedMoviesCount, setRenderedMoviesCount ] = React.useState(BASE_CARDS_COUNT);
+    const isTablet = useMediaQuery({ query: '(max-width: 1270px)' });
+    const isMobile = useMediaQuery({ query: '(max-width: 710px)' });
+    function clickButtonMoreFilm() {
+      if(isMobile) {
+        setRenderedMoviesCount(renderedMoviesCount+MOBILE_CARDS_COUNT_RAISE)
+      }else if(isTablet) {
+        setRenderedMoviesCount(renderedMoviesCount+TABLET_CARDS_COUNT_RAISE)
+      }else {
+        setRenderedMoviesCount(renderedMoviesCount+PC_CARDS_COUNT_RAISE)
+      }
     }
-  }
 
-  React.useEffect(() => {
-      setRenderedMoviesCount(6);
-  }, [props.movies]);
+    React.useEffect(() => {
+        setRenderedMoviesCount(6);
+    }, [props.movies]);
 
     return(
         <section className="cards">
@@ -37,7 +33,7 @@ function MoviesCards(props) {
                 {
                     props.movies.slice(0, renderedMoviesCount).map((movie) =>
                     (
-                      <MoviesCard  movie={movie} key={movie.movieId ? movie.movieId : movie.id}
+                      <SavedMovieCard  movie={movie} key={movie.movieId ? movie.movieId : movie.id}
                         setLike={props.setLike} setDislike={props.setDislike} fromSaved={props.savedMovies}
                       />
                     ))
@@ -57,4 +53,4 @@ function MoviesCards(props) {
         </section>
     )
 }
-export default MoviesCards;
+export default SavedMovieCards;
